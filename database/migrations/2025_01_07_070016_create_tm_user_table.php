@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('tm_user', function (Blueprint $table) {
-    $table->string('user_id', 10)->primary();
-    $table->string('user_nama', 50)->nullable();
-    $table->string('user_pass', 32)->nullable();
-    $table->char('user_hak', 2)->nullable();
-    $table->char('user_sts', 2)->nullable();
-    $table->timestamps();
-});
-
+        Schema::create('tm_user', function (Blueprint $table) {
+            $table->string('user_id',5)->primary();
+            $table->string('user_nama', 50)->nullable();
+            $table->string('user_pass', 60)->nullable();
+            $table->char('user_hak')->nullable();
+            $table->char('user_sts', 2)->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

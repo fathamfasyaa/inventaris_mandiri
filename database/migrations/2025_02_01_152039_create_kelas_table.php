@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tm_pengembalian', function (Blueprint $table) {
-            $table->foreign('pb_id')->references('pb_id')->on('tm_peminjaman');
-    $table->foreign('user_id')->references('user_id')->on('tm_user');
+         Schema::create('kelas', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_kelas');
+            $table->timestamps();
         });
     }
 
@@ -22,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tm_pengembalian', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('kelas');
     }
 };

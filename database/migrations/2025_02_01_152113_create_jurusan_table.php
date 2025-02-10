@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tm_peminjaman', function (Blueprint $table) {
-        $table->foreign('user_id')->references('user_id')->on('tm_user');
+         Schema::create('jurusan', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_jurusan');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tm_peminjaman', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('jurusan');
     }
 };
